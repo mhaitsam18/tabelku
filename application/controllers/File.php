@@ -18,9 +18,26 @@ class File extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/userguide3/general/urls.html
 	 */
-	public function index()
+	public function index($file = null)
 	{
-		$this->load->view('welcome_message');
+		if (!empty($_FILES['thumbnail']['name'])) {
+			$config['upload_path'] = "./assets/img/$file/";
+			$config['allowed_types'] = 'jpg|jpeg|png';
+			$config['max_size'] = '4096';
+
+			// Generate random file name
+			$config['file_name'] = uniqid();
+
+			$this->load->library('upload', $config);
+		}
+		if ($this->upload->do_upload('thumbnail')) {
+			$file_name = $this->upload->data('file_name');
+			echo $file_name;
+		} else {
+			$error = $this->upload->display_errors();
+			// Handle error
+			return $error;
+		}
 	}
 
 	public function avatar()
@@ -37,196 +54,6 @@ class File extends CI_Controller {
 		}
 		if ($this->upload->do_upload('thumbnail')) {
 			$file_name = $this->upload->data('file_name');
-			echo $file_name;
-		} else {
-			$error = $this->upload->display_errors();
-			// Handle error
-			return $error;
-		}
-	}
-	public function artikel()
-	{
-		if (!empty($_FILES['thumbnail']['name'])) {
-			$config['upload_path'] = './assets/img/artikel/';
-			$config['allowed_types'] = 'jpg|jpeg|png';
-			$config['max_size'] = '4096';
-
-			// Generate random file name
-			$config['file_name'] = uniqid();
-
-			$this->load->library('upload', $config);
-		}
-		if ($this->upload->do_upload('thumbnail')) {
-			$file_name = $this->upload->data('file_name');
-			echo $file_name;
-		} else {
-			$error = $this->upload->display_errors();
-			// Handle error
-			return $error;
-		}
-	}
-	
-	public function kingdom()
-	{
-		if (!empty($_FILES['file']['name'])) {
-			$config['upload_path'] = './assets/img/kingdom/';
-			$config['allowed_types'] = 'jpg|jpeg|png';
-			$config['max_size'] = '4096';
-
-			// Generate random file name
-			$config['file_name'] = uniqid();
-
-			$this->load->library('upload', $config);
-		}
-		if ($this->upload->do_upload('file')) {
-			$file_name = 'kingdom/'.$this->upload->data('file_name');
-			echo $file_name;
-		} else {
-			$error = $this->upload->display_errors();
-			// Handle error
-			return $error;
-		}
-	}
-	public function phylum()
-	{
-		if (!empty($_FILES['file']['name'])) {
-			$config['upload_path'] = './assets/img/phylum/';
-			$config['allowed_types'] = 'jpg|jpeg|png';
-			$config['max_size'] = '4096';
-
-			// Generate random file name
-			$config['file_name'] = uniqid();
-
-			$this->load->library('upload', $config);
-		}
-		if ($this->upload->do_upload('file')) {
-			$file_name = 'phylum/'.$this->upload->data('file_name');
-			echo $file_name;
-		} else {
-			$error = $this->upload->display_errors();
-			// Handle error
-			return $error;
-		}
-	}
-	public function class()
-	{
-		if (!empty($_FILES['file']['name'])) {
-			$config['upload_path'] = './assets/img/class/';
-			$config['allowed_types'] = 'jpg|jpeg|png';
-			$config['max_size'] = '4096';
-
-			// Generate random file name
-			$config['file_name'] = uniqid();
-
-			$this->load->library('upload', $config);
-		}
-		if ($this->upload->do_upload('file')) {
-			$file_name = 'class/'.$this->upload->data('file_name');
-			echo $file_name;
-		} else {
-			$error = $this->upload->display_errors();
-			// Handle error
-			return $error;
-		}
-	}
-	public function ordo()
-	{
-		if (!empty($_FILES['file']['name'])) {
-			$config['upload_path'] = './assets/img/ordo/';
-			$config['allowed_types'] = 'jpg|jpeg|png';
-			$config['max_size'] = '4096';
-
-			// Generate random file name
-			$config['file_name'] = uniqid();
-
-			$this->load->library('upload', $config);
-		}
-		if ($this->upload->do_upload('file')) {
-			$file_name = 'ordo/'.$this->upload->data('file_name');
-			echo $file_name;
-		} else {
-			$error = $this->upload->display_errors();
-			// Handle error
-			return $error;
-		}
-	}
-	public function family()
-	{
-		if (!empty($_FILES['file']['name'])) {
-			$config['upload_path'] = './assets/img/family/';
-			$config['allowed_types'] = 'jpg|jpeg|png';
-			$config['max_size'] = '4096';
-
-			// Generate random file name
-			$config['file_name'] = uniqid();
-
-			$this->load->library('upload', $config);
-		}
-		if ($this->upload->do_upload('file')) {
-			$file_name = 'family/'.$this->upload->data('file_name');
-			echo $file_name;
-		} else {
-			$error = $this->upload->display_errors();
-			// Handle error
-			return $error;
-		}
-	}
-	public function genus()
-	{
-		if (!empty($_FILES['file']['name'])) {
-			$config['upload_path'] = './assets/img/genus/';
-			$config['allowed_types'] = 'jpg|jpeg|png';
-			$config['max_size'] = '4096';
-
-			// Generate random file name
-			$config['file_name'] = uniqid();
-
-			$this->load->library('upload', $config);
-		}
-		if ($this->upload->do_upload('file')) {
-			$file_name = 'genus/'.$this->upload->data('file_name');
-			echo $file_name;
-		} else {
-			$error = $this->upload->display_errors();
-			// Handle error
-			return $error;
-		}
-	}
-	public function species()
-	{
-		if (!empty($_FILES['file']['name'])) {
-			$config['upload_path'] = './assets/img/species/';
-			$config['allowed_types'] = 'jpg|jpeg|png';
-			$config['max_size'] = '4096';
-
-			// Generate random file name
-			$config['file_name'] = uniqid();
-
-			$this->load->library('upload', $config);
-		}
-		if ($this->upload->do_upload('file')) {
-			$file_name = 'species/'.$this->upload->data('file_name');
-			echo $file_name;
-		} else {
-			$error = $this->upload->display_errors();
-			// Handle error
-			return $error;
-		}
-	}
-	public function fish()
-	{
-		if (!empty($_FILES['file']['name'])) {
-			$config['upload_path'] = './assets/img/fish/';
-			$config['allowed_types'] = 'jpg|jpeg|png';
-			$config['max_size'] = '4096';
-
-			// Generate random file name
-			$config['file_name'] = uniqid();
-
-			$this->load->library('upload', $config);
-		}
-		if ($this->upload->do_upload('file')) {
-			$file_name = 'fish/'.$this->upload->data('file_name');
 			echo $file_name;
 		} else {
 			$error = $this->upload->display_errors();

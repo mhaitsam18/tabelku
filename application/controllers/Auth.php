@@ -209,12 +209,12 @@ class Auth extends CI_Controller {
 					];
 					$this->session->set_userdata($data);
 					if ($user['role_id'] == 1) {
-						redirect('admin/index');
+						redirect('user');
 					} elseif($user['role_id'] == 2){
-						redirect('member/home');
+						redirect('user');
 					} else {
 						// redirect('Artikel/index');
-						redirect('user/index');
+						redirect('index');
 					}
 				} else {
 

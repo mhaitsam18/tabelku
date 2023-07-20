@@ -2,15 +2,15 @@
 
 function app_name()
 {
-	return "Laundry Restu";	
+	return "Tabelku";	
 }
 function app_brand()
 {
-	return "Laundry <span>Restu</span>";	
+	return "Tabel<span>ku</span>";	
 }
 function creator_name()
 {
-	return "Anggun Shinta";	
+	return "Titik Rahmawati";	
 }
 
 function is_logged_in()

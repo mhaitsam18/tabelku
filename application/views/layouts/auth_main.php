@@ -43,12 +43,22 @@ License: For each use you must have a valid license purchased only from above li
 	<!-- End layout styles -->
 
 	<link rel="shortcut icon" href="<?= base_url() ?>/assets/images/favicon.png" />
+	<style>
+		#auth-happy {
+			width: 300 px;
+			height: 400 px;
+			background-image: url('<?= base_url('assets/img/app/auth-happy.png') ?>');
+			background-size: contain;
+			background-position: center;
+			position: relative;
+		}
+	</style>
 </head>
 
 <body>
 	<div class="main-wrapper">
 		<div class="page-wrapper full-page">
-			<div class="page-content d-flex align-items-center justify-content-center">
+			<div class="page-content d-flex align-items-center justify-content-center bg-primary" <?= ($this->uri->segment(2) != 'registration') ? 'id="auth-happy"' : '' ?>>
 
 				<div class="row w-100 mx-0 auth-page">
 					<?php $this->load->view($page); ?>

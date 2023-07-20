@@ -4,9 +4,10 @@
 	}
 </style>
 <nav class="sidebar">
-	<div class="sidebar-header sidebar-h" style="background-color: #F2F2F2;">
+	<div class="sidebar-header sidebar-h" style="background-color: #3475BA;">
 		<a href="#" class="sidebar-brand">
-			<img src="<?= base_url('/assets/img/logo/sidebar-logo.png') ?>" class="" alt="" style="margin-left: -40px;">
+			<?= app_brand() ?>
+			<!-- <img src="<?= base_url('/assets/img/logo/sidebar-logo.png') ?>" class="" alt="" style="margin-left: -40px;"> -->
 		</a>
 		<div class="sidebar-toggler not-active">
 			<span></span>
@@ -44,7 +45,7 @@
 		</ul>
 	</div>
 </nav>
-<!-- <nav class="settings-sidebar">
+<nav class="settings-sidebar">
 	<div class="sidebar-body">
 		<a href="#" class="settings-sidebar-toggler">
 			<i data-feather="settings"></i>
@@ -75,7 +76,7 @@
 			</a>
 		</div>
 	</div>
-</nav> -->
+</nav>
 <!-- partial -->
 
 <div class="page-wrapper">

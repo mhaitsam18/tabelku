@@ -1,7 +1,7 @@
 <!-- partial:partials/_footer.html -->
 <footer class="footer d-flex flex-column flex-md-row align-items-center justify-content-between px-4 py-3 border-top small">
-    <p class="text-muted mb-1 mb-md-0">Copyright © 2021 <a href="<?= base_url() ?>" target="_blank">IEI Jabar</a>.</p>
-    <p class="text-muted">Handcrafted By Feby Geby Amel With <i class="mb-1 text-primary ms-1 icon-sm" data-feather="heart"></i></p>
+    <p class="text-muted mb-1 mb-md-0">Copyright © <?= date('Y') ?> <a href="<?= base_url() ?>" target="_blank"><?= app_name() ?></a>.</p>
+    <p class="text-muted">Handcrafted By <?= creator_name() ?> With <i class="mb-1 text-primary ms-1 icon-sm" data-feather="heart"></i></p>
 </footer>
 <!-- partial -->
 
@@ -9,7 +9,7 @@
 </div>
 
 <!-- core:js -->
-<script src="<?= base_url() ?>/assets/vendors/core/core.js"></script>
+<script src="<?= base_url() ?>assets/vendors/core/core.js"></script>
 <!-- endinject -->
 
 <!-- Plugin js for this page -->
@@ -23,21 +23,21 @@
 
 
 <!-- Plugin js for this page -->
-<script src="<?= base_url() ?>/assets/vendors/chartjs/Chart.min.js"></script>
-<script src="<?= base_url() ?>/assets/vendors/jquery.flot/jquery.flot.js"></script>
-<script src="<?= base_url() ?>/assets/vendors/jquery.flot/jquery.flot.resize.js"></script>
-<script src="<?= base_url() ?>/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-<script src="<?= base_url() ?>/assets/vendors/apexcharts/apexcharts.min.js"></script>
+<script src="<?= base_url() ?>assets/vendors/chartjs/Chart.min.js"></script>
+<script src="<?= base_url() ?>assets/vendors/jquery.flot/jquery.flot.js"></script>
+<script src="<?= base_url() ?>assets/vendors/jquery.flot/jquery.flot.resize.js"></script>
+<script src="<?= base_url() ?>assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="<?= base_url() ?>assets/vendors/apexcharts/apexcharts.min.js"></script>
 <!-- End plugin js for this page -->
 
 <!-- inject:js -->
-<script src="<?= base_url() ?>/assets/vendors/feather-icons/feather.min.js"></script>
-<script src="<?= base_url() ?>/assets/js/template.js"></script>
+<script src="<?= base_url() ?>assets/vendors/feather-icons/feather.min.js"></script>
+<script src="<?= base_url() ?>assets/js/template.js"></script>
 <!-- endinject -->
 
 <!-- Custom js for this page -->
-<script src="<?= base_url() ?>/assets/js/dashboard-light.js"></script>
-<script src="<?= base_url() ?>/assets/js/datepicker.js"></script>
+<script src="<?= base_url() ?>assets/js/dashboard-light.js"></script>
+<script src="<?= base_url() ?>assets/js/datepicker.js"></script>
 <!-- End custom js for this page -->
 
 
@@ -49,12 +49,10 @@
 <!-- End plugin js for this page -->
 
 <!-- Custom js for this page -->
-<script src="<?= base_url() ?>/assets/js/tinymce.js"></script>
-<script src="<?= base_url() ?>/assets/js/simplemde.js"></script>
-<script src="<?= base_url() ?>/assets/js/ace.js"></script>
+<script src="<?= base_url() ?>assets/js/tinymce.js"></script>
+<script src="<?= base_url() ?>assets/js/simplemde.js"></script>
+<script src="<?= base_url() ?>assets/js/ace.js"></script>
 <!-- End custom js for this page -->
-
-<script src="<?= base_url() ?>/assets/vendors/jquery-tags-input/jquery.tagsinput.min.js"></script>
 
 <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
 <script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js">
@@ -72,20 +70,6 @@
 
 
 <script>
-    $(function() {
-        'use strict';
-
-        $('.tags-input').tagsInput({
-            'width': '100%',
-            'height': '75%',
-            'interactive': true,
-            'defaultText': 'Add More',
-            'removeWithBackspace': true,
-            'minChars': 0,
-            'maxChars': 20,
-            'placeholderColor': '#666666'
-        });
-    });
     const folder = $('.filepond').data('folder');
     FilePond.registerPlugin(
         FilePondPluginImagePreview,
@@ -116,33 +100,6 @@
     });
 </script>
 <script type="text/javascript">
-    const success = $('.flash-data').data('success');
-    if (success) {
-        //'Data ' + 
-        Swal.fire({
-            title: 'Success',
-            text: success,
-            icon: 'success'
-        });
-    }
-    const error = $('.flash-data').data('error');
-    if (error) {
-        //'Data ' + 
-        Swal.fire({
-            title: 'Failed',
-            text: error,
-            icon: 'error'
-        });
-    }
-    const warning = $('.flash-data').data('warning');
-    if (warning) {
-        //'Data ' + 
-        Swal.fire({
-            title: 'Warning',
-            text: warning,
-            icon: 'warning'
-        });
-    }
     const flashData = $('.flash-data').data('flashdata');
     const objek = $('.flash-data').data('objek');
     console.log(flashData);
@@ -388,6 +345,35 @@
             });
         });
     });
+
+    $(function() {
+        $('.newKategoriModalButton').on('click', function() {
+            $('#newKategoriModalLabel').html('Add New Category');
+            $('.modal-footer button[type=submit]').html('Add');
+            $('.modal-content form')[0].reset();
+            $('.modal-content form').attr('action', '<?= base_url('DataMaster/kategori') ?>');
+        });
+
+        $('.updateKategoriModalButton').on('click', function() {
+            $('#newKategoriModalLabel').html('Edit Category');
+            $('.modal-footer button[type=submit]').html('Save');
+            $('.modal-content form').attr('action', '<?= base_url('DataMaster/updateKategori') ?>');
+            const id = $(this).data('id');
+            jQuery.ajax({
+                url: '<?= base_url('DataMaster/getUpdateKategori') ?>',
+                data: {
+                    id: id
+                },
+                method: 'post',
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data);
+                    $('#id_kategori').val(data.id_kategori);
+                    $('#kategori').val(data.kategori);
+                }
+            });
+        });
+    });
 </script>
 <script type="text/javascript">
     $('.check-role-access').on('click', function() {
@@ -406,6 +392,38 @@
             }
         });
     });
+
+    $(document).ready(function() {
+        setInterval(function() {
+            $('#show').load('<?= base_url('User/notifikasi') ?>')
+        }, 10000);
+    });
+
+    function notifikasi() {
+        $.ajax({
+            type: "POST",
+            url: '<?= base_url('User/readAllNotification') ?>',
+            data: {
+                action: 'call_this'
+            },
+            success: function(html) {
+
+            }
+        });
+    }
+
+    function read(id) {
+        $.ajax({
+            type: "POST",
+            url: '<?= base_url('User/readNotification/') ?>' + id,
+            data: {
+                action: 'call_this'
+            },
+            success: function(html) {
+
+            }
+        });
+    }
 </script>
 </body>
 
