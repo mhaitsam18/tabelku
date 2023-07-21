@@ -49,7 +49,7 @@ License: For each use you must have a valid license purchased only from above li
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
 	<!-- End layout styles -->
 
-	<link rel="shortcut icon" href="<?= base_url() ?>assets/images/favicon.png" />
+	<link rel="shortcut icon" href="<?= base_url() ?>assets/img/app/auth-happy.png" />
 
 	<!-- Plugin css for this page -->
 	<link rel="stylesheet" href="<?= base_url() ?>/assets/vendors/simplemde/simplemde.min.css">

@@ -42,7 +42,7 @@ License: For each use you must have a valid license purchased only from above li
 	<link rel="stylesheet" href="<?= base_url() ?>/assets/css/demo1/style.css">
 	<!-- End layout styles -->
 
-	<link rel="shortcut icon" href="<?= base_url() ?>/assets/images/favicon.png" />
+	<link rel="shortcut icon" href="<?= base_url() ?>assets/img/app/auth-happy.png" />
 	<style>
 		#auth-happy {
 			width: 300 px;
