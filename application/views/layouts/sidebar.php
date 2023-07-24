@@ -6,7 +6,8 @@
 <nav class="sidebar">
 	<div class="sidebar-header sidebar-h" style="background-color: #3475BA;">
 		<a href="#" class="sidebar-brand">
-			<?= app_brand() ?>
+			<!-- <?= app_brand() ?> -->
+			<img src="<?= base_url('assets/img/app/tabelku.png') ?>" class="w-50" alt="">
 			<!-- <img src="<?= base_url('/assets/img/logo/sidebar-logo.png') ?>" class="" alt="" style="margin-left: -40px;"> -->
 		</a>
 		<div class="sidebar-toggler not-active">
