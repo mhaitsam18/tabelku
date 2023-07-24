@@ -29,7 +29,7 @@
 							<h1 class="text-light">SELAMAT DATANG DI WEBSITE TABELKU, <?= $user['name'] ?>!!</h1>
 						</div>
 						<div class="card-body text-justify">
-							<p class="fs-1">
+							<p class="fs-3">
 								Website Tabelku adalah Website pencatatan pembelian yang ada di UD Bawang Merah Indofood.
 								Untuk mencatat data pembelian klik fitur Pencatatan, jika ingin melihat data yang sudah tercatat, maka klik fitur Data Pembelian yang berada di sebelah kiri, dan jika ingin melihat laporan maka klik fitur Laporan di sebelah kiri.
 							</p>

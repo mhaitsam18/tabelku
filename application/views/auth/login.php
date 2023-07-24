@@ -32,7 +32,7 @@
 						<div>
 							<button type="submit" class="btn btn-primary me-2 mb-2 mb-md-0 text-white">Login</button>
 						</div>
-						<a href="<?= base_url('/auth/registration') ?>" class="d-block mt-3 text-light">Belum Punya akun? Ayo Daftar</a>
+						<!-- <a href="<?= base_url('/auth/registration') ?>" class="d-block mt-3 text-light">Belum Punya akun? Ayo Daftar</a> -->
 					</form>
 				</div>
 			</div>

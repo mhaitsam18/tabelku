@@ -75,7 +75,6 @@ class Auth extends CI_Controller {
 				'email' => htmlspecialchars($this->input->post('email', true)),
 				'username' => htmlspecialchars($this->input->post('username', true)),
 				'gender' => htmlspecialchars($this->input->post('gender', true)),
-				'place_of_birth' => htmlspecialchars($this->input->post('place_of_birth', true)),
 				'birthday' => htmlspecialchars($this->input->post('birthday', true)),
 				'phone_number' => htmlspecialchars($this->input->post('phone_number', true)),
 				'address' => htmlspecialchars($this->input->post('address', true)),
