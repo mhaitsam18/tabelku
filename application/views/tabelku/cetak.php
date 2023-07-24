@@ -72,7 +72,7 @@
         <?php else : ?>
             <tbody>
                 <tr>
-                    <td colspan="4">Tidak ada Laporan</td>
+                    <td colspan="6">Tidak ada Laporan</td>
                 </tr>
             </tbody>
         <?php endif; ?>

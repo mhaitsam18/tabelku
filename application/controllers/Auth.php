@@ -113,7 +113,7 @@ class Auth extends CI_Controller {
 		$config = [
 			'protocol' => 'smtp',
 			'smtp_host' => 'ssl://smtp.googlemail.com',
-			'smtp_user' => 'mhaitsam18@gmail.com',
+			'smtp_user' => 'email@gmail.com',
 			'smtp_pass' => 'mirainikki193880098',
 			'smtp_port' => 465,
 			'mailtype' => 'html',
@@ -123,7 +123,7 @@ class Auth extends CI_Controller {
 
 		$this->load->library('email', $config);
 		$this->email->initialize($config); 
-		$this->email->from('mhaitsam18@gmail.com', 'Muhammad Haitsam');
+		$this->email->from('email@gmail.com', 'Muhammad Haitsam');
 		$this->email->to($this->input->post('email'));
 		if ($type== 'verify') {
 			$this->email->subject('Account Verification');
@@ -212,7 +212,7 @@ class Auth extends CI_Controller {
 						redirect('user');
 					} else {
 						// redirect('Artikel/index');
-						redirect('index');
+						redirect('user');
 					}
 				} else {
 
