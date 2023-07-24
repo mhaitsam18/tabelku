@@ -15,6 +15,11 @@ class User extends CI_Controller {
 	{
 		$data['title'] = "Dashboard";
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+		$data['data_pendapatan'] = $this->db
+			->select("DATE_FORMAT(tanggal_pembelian, '%Y-%m') as bulan, SUM(total_bayar) as total_pendapatan")
+			->from("pembelian")
+			->group_by("DATE_FORMAT(tanggal_pembelian, '%Y-%m')")
+			->get()->result();
 		$this->load->view('layouts/header', $data);
 		$this->load->view('layouts/sidebar', $data);
 		$this->load->view('layouts/topbar', $data);

@@ -19,25 +19,107 @@
 			</button>
 		</div> -->
 	</div>
-
-	<div class="row" style="margin-top: 300px;">
-		<div class="col-12 col-xl-12 stretch-card">
-			<div class="row flex-grow-1">
-				<div class="col-md-12 grid-margin stretch-card">
-					<div class="card">
-						<div class="card-body text-center" style="background-color: #61A6F0;">
-							<h1 class="text-light">SELAMAT DATANG DI WEBSITE TABELKU, <?= $user['name'] ?>!!</h1>
-						</div>
-						<div class="card-body text-justify">
-							<p class="fs-3">
-								Website Tabelku adalah Website pencatatan pembelian yang ada di UD Bawang Merah Indofood.
-								Untuk mencatat data pembelian klik fitur Pencatatan, jika ingin melihat data yang sudah tercatat, maka klik fitur Data Pembelian yang berada di sebelah kiri, dan jika ingin melihat laporan maka klik fitur Laporan di sebelah kiri.
-							</p>
+	<?php if ($this->session->userdata('role_id') == 1 || $this->session->userdata('role_id') == 3) : ?>
+		<div class="row">
+			<div class="col-12 col-xl-12 stretch-card">
+				<div class="row flex-grow-1">
+					<div class="col-md-12 grid-margin stretch-card">
+						<div class="card">
+							<div class="card-body" style="overflow: auto;">
+								<div class="d-flex justify-content-between align-items-baseline mb-2">
+									<h6 class="card-title mb-0">Pembelian Bulanan</h6>
+									<!-- Dropdown menu code... -->
+								</div>
+								<p class="text-muted">Pembelian Bulanan.</p>
+								<style>
+									#chart {
+										width: 80%;
+									}
+								</style>
+								<div id="chart-container">
+									<div id="chart"></div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
-	</div>
+	<?php elseif ($this->session->userdata('role_id') == 2) : ?>
+		<div class="row" style="margin-top: 300px;">
+			<div class="col-12 col-xl-12 stretch-card">
+				<div class="row flex-grow-1">
+					<div class="col-md-12 grid-margin stretch-card">
+						<div class="card">
+							<div class="card-body text-center" style="background-color: #61A6F0;">
+								<h1 class="text-light">SELAMAT DATANG DI WEBSITE TABELKU, <?= $user['name'] ?>!!</h1>
+							</div>
+							<div class="card-body text-justify">
+								<p class="fs-3">
+									Website Tabelku adalah Website pencatatan pembelian yang ada di UD Bawang Merah Indofood.
+									Untuk mencatat data pembelian klik fitur Pencatatan, jika ingin melihat data yang sudah tercatat, maka klik fitur Data Pembelian yang berada di sebelah kiri, dan jika ingin melihat laporan maka klik fitur Laporan di sebelah kiri.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php endif; ?>
 </div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.28.3/dist/apexcharts.min.css">
+<script src="https://cdn.jsdelivr.net/npm/apexcharts@3.28.3/dist/apexcharts.min.js"></script>
+<script>
+	// Fungsi untuk mengubah angka menjadi format rupiah
+	function formatRupiah(number) {
+		return new Intl.NumberFormat('id-ID', {
+			style: 'currency',
+			currency: 'IDR'
+		}).format(number);
+	}
+	var data_pendapatan = <?= json_encode($data_pendapatan) ?>;
+
+	// Ubah format tanggal dari "YYYY-MM" menjadi "MMMM YYYY"
+	var formattedData = data_pendapatan.map(item => {
+		var dateParts = item.bulan.split('-');
+		var month = parseInt(dateParts[1], 10);
+		var monthName = new Date(Date.UTC(2000, month - 1, 1)).toLocaleString('id-ID', {
+			month: 'long'
+		});
+		return {
+			bulan: monthName + ' ' + dateParts[0],
+			total_pendapatan: item.total_pendapatan
+		};
+	});
+
+	var options = {
+		chart: {
+			type: 'bar'
+		},
+		series: [{
+			name: 'Total Pendapatan',
+			data: formattedData.map(item => item.total_pendapatan)
+		}],
+		xaxis: {
+			categories: formattedData.map(item => item.bulan)
+		},
+		plotOptions: {
+			bar: {
+				horizontal: false,
+				barWidth: '50%' // Mengatur lebar batang menjadi 50%
+			}
+		},
+		// Menggunakan formatter untuk menampilkan nilai dalam format rupiah pada tooltip
+		tooltip: {
+			y: {
+				formatter: function(val) {
+					return formatRupiah(val);
+				}
+			}
+		}
+	};
+
+	var chart = new ApexCharts(document.querySelector("#chart"), options);
+	chart.render();
+</script>

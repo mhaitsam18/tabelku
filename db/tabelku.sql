@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 24, 2023 at 05:50 PM
+-- Generation Time: Jul 24, 2023 at 10:07 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -88,7 +88,10 @@ CREATE TABLE `pembelian` (
 --
 
 INSERT INTO `pembelian` (`id`, `nama_penjual`, `harga_beli`, `bobot`, `kualitas`, `tanggal_pembelian`, `total_bayar`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
-(1, 'Dadang', 6000.00, '10 kg', 'Besar', '2023-07-24', 60000.00, 'Administrator', '2023-07-24 15:13:12', NULL, '2023-07-24 15:13:12');
+(1, 'Dadang', 6000.00, '10 kg', 'Besar', '2023-03-10', 60000.00, 'Administrator', '2023-07-24 15:13:12', 'Administrator', '2023-07-24 15:13:12'),
+(2, 'Dadang', 9000.00, '10 kg', 'Besar', '2023-07-20', 90000.00, 'Administrator', '2023-07-24 19:53:49', NULL, '2023-07-24 19:53:49'),
+(3, 'Dadang', 11000.00, '20 kg', 'Besar', '2023-07-22', 220000.00, 'Administrator', '2023-07-24 20:06:28', NULL, '2023-07-24 20:06:28'),
+(4, 'Dadang', 1000.00, '10 kg', 'Besar', '2023-01-27', 10000.00, 'Administrator', '2023-07-24 20:07:02', NULL, '2023-07-24 20:07:02');
 
 -- --------------------------------------------------------
 
@@ -120,7 +123,6 @@ CREATE TABLE `user` (
   `name` varchar(128) DEFAULT NULL,
   `email` varchar(128) DEFAULT NULL,
   `gender` varchar(128) DEFAULT NULL,
-  `place_of_birth` varchar(128) DEFAULT NULL,
   `birthday` date DEFAULT NULL,
   `phone_number` varchar(128) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
@@ -136,11 +138,11 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `name`, `email`, `gender`, `place_of_birth`, `birthday`, `phone_number`, `address`, `image`, `avatar_id`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(0, 'undefined', 'Undefined', 'undefined@gmail.com', NULL, NULL, NULL, NULL, NULL, 'profile/default.png', NULL, '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 0, 0, 1614472317),
-(1, 'administrator', 'Administrator', 'administrator@gmail.com', 'Perempuan', 'Bandung', '1999-02-18', '081214222446', 'Jl. Bandung ', 'profile/default.png', NULL, '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 1, 1, 1614472317),
-(2, 'pegawai', 'Pegawai', 'pegawai@gmail.com', 'Perempuan', 'Bandung', '2002-06-12', '0128938123', 'Bandung', 'avatar/woman.png', NULL, '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 2, 1, 1614472317),
-(3, 'pemilik', 'Pemilik', 'pemilik@gmail.com', 'Perempuan', 'Bandung', '2002-06-12', '0821148321', 'Bandung', 'profile/default.png', NULL, '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 3, 1, 1614472317);
+INSERT INTO `user` (`id`, `username`, `name`, `email`, `gender`, `birthday`, `phone_number`, `address`, `image`, `avatar_id`, `password`, `role_id`, `is_active`, `date_created`) VALUES
+(0, 'undefined', 'Undefined', 'undefined@gmail.com', NULL, NULL, NULL, NULL, 'profile/default.png', NULL, '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 0, 0, 1614472317),
+(1, 'administrator', 'Administrator', 'administrator@gmail.com', 'Perempuan', '1999-02-18', '081214222446', 'Jl. Bandung ', 'profile/default.png', NULL, '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 1, 1, 1614472317),
+(2, 'pegawai', 'Pegawai', 'pegawai@gmail.com', 'Perempuan', '2002-06-12', '0128938123', 'Bandung', 'avatar/woman.png', NULL, '$2y$10$DxPCcEsqmMMp6IRz5dKD6us/DT6dNye0rZN/j884Xgcbi/3KY2Pqm', 2, 1, 1614472317),
+(3, 'pemilik', 'Pemilik', 'pemilik@gmail.com', 'Perempuan', '2002-06-12', '0821148321', 'Bandung', 'profile/default.png', NULL, '$2y$10$54Ajl0R.ArBF45hyXCsJZOnTdLzoegtv9nJbBRs3ICk1QBv1kS5yW', 3, 1, 1614472317);
 
 -- --------------------------------------------------------
 
@@ -356,7 +358,7 @@ ALTER TABLE `avatar`
 -- AUTO_INCREMENT for table `pembelian`
 --
 ALTER TABLE `pembelian`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tampilan`
