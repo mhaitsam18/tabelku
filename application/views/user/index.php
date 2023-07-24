@@ -2,7 +2,7 @@
 
 	<div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
 		<div>
-			<h4 class="mb-3 mb-md-0">Welcome to Dashboard</h4>
+			<!-- <h4 class="mb-3 mb-md-0">Welcome to Dashboard</h4> -->
 		</div>
 		<!-- <div class="d-flex align-items-center flex-wrap text-nowrap">
 			<div class="input-group date datepicker wd-200 me-2 mb-2 mb-md-0" id="dashboardDate">
@@ -20,21 +20,24 @@
 		</div> -->
 	</div>
 
-	<div class="row">
+	<div class="row" style="margin-top: 300px;">
 		<div class="col-12 col-xl-12 stretch-card">
 			<div class="row flex-grow-1">
 				<div class="col-md-12 grid-margin stretch-card">
 					<div class="card">
-						<div class="card-body">
-							<div class="d-flex justify-content-between align-items-baseline">
-								<h6 class="card-title mb-0">Number of Visitor</h6>
-							</div>
-							<div class="row">
+						<div class="card-body text-center" style="background-color: #61A6F0;">
+							<h1 class="text-light">SELAMAT DATANG DI WEBSITE TABELKU, <?= $user['name'] ?>!!</h1>
+						</div>
+						<div class="card-body text-justify">
+							<p class="fs-1">
+								Website Tabelku adalah Website pencatatan pembelian yang ada di UD Bawang Merah Indofood.
+								Untuk mencatat data pembelian klik fitur Pencatatan, jika ingin melihat data yang sudah tercatat, maka klik fitur Data Pembelian yang berada di sebelah kiri, dan jika ingin melihat laporan maka klik fitur Laporan di sebelah kiri.
+							</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
+	</div>
 </div>
