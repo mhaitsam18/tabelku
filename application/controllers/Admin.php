@@ -7,11 +7,7 @@ class Admin extends CI_Controller {
 	{
 		parent:: __construct();
 		is_logged_in();
-		$this->load->library('form_validation');
 		$this->load->model('Admin_model');
-		$this->load->model('User_model');
-		$this->load->model('DataMaster_model');
-		$this->load->model('Menu_model');
 		date_default_timezone_set('Asia/Jakarta');
 	}
 
@@ -169,9 +165,6 @@ class Admin extends CI_Controller {
 		$this->db->set('role_id', $this->input->post('role_id'));
 		$this->db->where('id', $this->input->post('id'));
 		$this->db->update('user');
-		// $input = array('role_id' => $this->input->post('role_id'));
-		// $id = $this->input->post('id');
-		// $this->User_model->update()
 
 		$this->session->set_flashdata('success', 'Set User Role successfull!');
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
