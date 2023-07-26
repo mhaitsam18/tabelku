@@ -55,7 +55,7 @@
 
                                             <a href="#" class="badge bg-success btn-update" data-bs-toggle="modal" data-bs-target="#editModal" data-id="<?= $pembelian['id'] ?>" data-nama_penjual="<?= $pembelian['nama_penjual'] ?>" data-harga_beli="<?= $pembelian['harga_beli'] ?>" data-bobot="<?= $pembelian['bobot'] ?>" data-kualitas="<?= $pembelian['kualitas'] ?>" data-tanggal_pembelian="<?= $pembelian['tanggal_pembelian'] ?>" data-total_bayar="<?= $pembelian['total_bayar'] ?>">Ubah</a>
 
-                                            <a href="<?= base_url("Tabelku/pembelian/delete/$pembelian[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="pembelian">Hapus</a>
+                                            <a href="<?= base_url("Tabelku/delete/$pembelian[id]"); ?>" class="badge bg-danger tombol-hapus" data-hapus="pembelian">Hapus</a>
                                         </td>
                                     </tr>
 
