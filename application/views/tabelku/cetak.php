@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Laporan Transaksi Laundry</title>
+    <title><?= $title ?></title>
     <style>
         body {
             font-family: Arial, sans-serif;
