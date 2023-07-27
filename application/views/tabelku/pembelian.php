@@ -30,11 +30,11 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
+                                    <th scope="col">Tanggal Pembelian</th>
                                     <th scope="col">Nama Penjual</th>
+                                    <th scope="col">kualitas</th>
                                     <th scope="col">Harga Beli</th>
                                     <th scope="col">Bobot</th>
-                                    <th scope="col">kualitas</th>
-                                    <th scope="col">Tanggal Pembelian</th>
                                     <th scope="col">Total Bayar</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
@@ -45,11 +45,11 @@
 
                                     <tr>
                                         <td><?= $no++ ?></td>
+                                        <td><?= cari_tanggal($pembelian['tanggal_pembelian']) ?></td>
                                         <td><?= $pembelian['nama_penjual'] ?></td>
+                                        <td><?= $pembelian['kualitas'] ?></td>
                                         <td>Rp <?= number_format($pembelian['harga_beli'], 2, ',', '.') ?></td>
                                         <td><?= $pembelian['bobot'] ?></td>
-                                        <td><?= $pembelian['kualitas'] ?></td>
-                                        <td><?= cari_tanggal($pembelian['tanggal_pembelian']) ?></td>
                                         <td>Rp <?= number_format($pembelian['total_bayar'], 2, ',', '.') ?></td>
                                         <td>
 

@@ -25,7 +25,7 @@
                     </div>
                     <form action="<?= base_url('Tabelku/index') ?>" method="post">
                         <input type="hidden" name="aksi" value="add">
-                        <div class="row">
+                        <div class="row form-update">
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label for="nama_penjual">Nama penjual</label>
@@ -49,8 +49,8 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="mb-3">
-                                    <label for="bobot">Bobot</label>
-                                    <input type="text" class="form-control" id="bobot" name="bobot" placeholder="Bobot">
+                                    <label for="bobot">Bobot (kg)</label>
+                                    <input type="number" class="form-control" id="bobot" name="bobot" placeholder="Bobot">
                                     <?= form_error('bobot', '<div class="invalid-feedback">', '</div>') ?>
                                 </div>
                                 <div class="mb-3">
@@ -74,3 +74,40 @@
         </div>
     </div> <!-- row -->
 </div>
+
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+        function updateHarga() {
+            var bobot = $(".form-update #bobot").val();
+            var harga_beli = $(".form-update #harga_beli").val();
+
+            // Make sure both fields are filled before making the AJAX request
+            if (harga_beli && bobot) {
+                // AJAX request to get the updated harga
+                $.ajax({
+                    url: "<?= base_url('Tabelku/hitungHarga') ?>", // Replace this with your server endpoint URL that returns the updated harga
+                    method: "POST", // Use "POST" or "GET" depending on your server implementation
+                    data: {
+                        harga_beli: harga_beli,
+                        bobot: bobot
+                    },
+                    dataType: "json", // Use "json" if your server returns JSON, or "text" for plain text response
+                    success: function(data) {
+                        // Update the harga field with the retrieved value
+                        $(".form-update #total_bayar").val(data);
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle errors if any
+                        console.error(error);
+                    }
+                });
+            }
+        };
+        // Trigger the AJAX request when the user types in the bobot field
+        $(".form-update #bobot").on("input", updateHarga);
+
+        // Trigger the AJAX request when the harga_beli selection changes
+        $(".form-update #harga_beli").on("input", updateHarga);
+    });
+</script>

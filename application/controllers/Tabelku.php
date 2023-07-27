@@ -178,4 +178,13 @@ class Tabelku extends CI_Controller
             }
         }
     }
+
+
+
+    public function hitungHarga()
+    {
+        $bobot = $this->input->post('bobot');
+        $harga_beli = $this->input->post('harga_beli');
+        echo $bobot*$harga_beli;
+    }
 }
