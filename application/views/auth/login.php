@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-md-12 ps-md-0">
 				<div class="auth-form-wrapper px-4 py-5">
-					<a href="#" class="noble-ui-logo d-block mb-2"><img src="<?= base_url('assets/img/app/tabelku.png') ?>" alt=""></a>
+					<a href="#" class="noble-ui-logo d-block mb-2"><img src="<?= base_url('assets/img/'. app_web('logo')) ?>" alt=""></a>
 					<h5 class="text-light fw-normal mb-4">Selamat datang! Silahkan Login.</h5>
 					<?= $this->session->flashdata('message'); ?>
 					<form action="<?= base_url('auth/') ?>" method="post" class="forms-sample">
@@ -30,7 +30,7 @@
 							</label>
 						</div> -->
 						<div>
-							<button type="submit" class="btn btn-primary me-2 mb-2 mb-md-0 text-white">Login</button>
+							<button type="submit" class="btn <?= app_web('warna_button') ?> me-2 mb-2 mb-md-0 text-white">Login</button>
 						</div>
 						<!-- <a href="<?= base_url('/auth/registration') ?>" class="d-block mt-3 text-light">Belum Punya akun? Ayo Daftar</a> -->
 					</form>

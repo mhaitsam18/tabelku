@@ -1,14 +1,14 @@
 <!-- partial:partials/_navbar.html -->
-<nav class="navbar" style="background-color: #61A6F0;">
-    <a href="#" class="sidebar-toggler">
+<nav class="navbar <?= app_tampilan('warna_topbar') ?>">
+<a href="#" class="sidebar-toggler">
         <i data-feather="menu"></i>
     </a>
     <div class="navbar-content">
-        <div class="align-self-center" style="background-color: #61A6F0;">
-            <hr>
+        <div class="align-self-center <?= app_tampilan('warna_topbar') ?>">
+        <hr>
         </div>
         <ul class="navbar-nav">
-            <li class="nav-item dropdown">
+            <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="notificationDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i data-feather="bell"></i>
                     <div class="indicator">
@@ -22,7 +22,7 @@
                     </div>
                     <div class="p-1">
                         <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
-                            <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+                            <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-<?= app_tampilan('warna_skema') ?> rounded-circle me-3">
                                 <i class="icon-sm text-white" data-feather="gift"></i>
                             </div>
                             <div class="flex-grow-1 me-2">
@@ -31,7 +31,7 @@
                             </div>
                         </a>
                         <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
-                            <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+                            <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-<?= app_tampilan('warna_skema') ?> rounded-circle me-3">
                                 <i class="icon-sm text-white" data-feather="alert-circle"></i>
                             </div>
                             <div class="flex-grow-1 me-2">
@@ -40,7 +40,7 @@
                             </div>
                         </a>
                         <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
-                            <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+                            <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-<?= app_tampilan('warna_skema') ?> rounded-circle me-3">
                                 <img class="wd-30 ht-30 rounded-circle" src="https://via.placeholder.com/30x30" alt="userr">
                             </div>
                             <div class="flex-grow-1 me-2">
@@ -49,7 +49,7 @@
                             </div>
                         </a>
                         <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
-                            <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+                            <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-<?= app_tampilan('warna_skema') ?> rounded-circle me-3">
                                 <i class="icon-sm text-white" data-feather="layers"></i>
                             </div>
                             <div class="flex-grow-1 me-2">
@@ -58,7 +58,7 @@
                             </div>
                         </a>
                         <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
-                            <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+                            <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-<?= app_tampilan('warna_skema') ?> rounded-circle me-3">
                                 <i class="icon-sm text-white" data-feather="download"></i>
                             </div>
                             <div class="flex-grow-1 me-2">
@@ -71,7 +71,7 @@
                         <a href="javascript:;">View all</a>
                     </div>
                 </div>
-            </li>
+            </li> -->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="wd-30 ht-30 rounded-circle" src="<?= base_url('/assets/img/' . $user['image']) ?>" alt="profile">

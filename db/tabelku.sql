@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 24, 2023 at 10:07 PM
+-- Generation Time: Jul 28, 2023 at 10:56 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -36,6 +36,13 @@ CREATE TABLE `app` (
   `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `app`
+--
+
+INSERT INTO `app` (`id`, `logo`, `deskripsi`, `warna_button`, `created_at`, `updated_at`) VALUES
+(1, 'app/tabelku.png', 'Website Tabelku adalah Website pencatatan pembelian yang ada di UD Bawang Merah Indofood.\r\nUntuk mencatat data pembelian klik fitur Pencatatan, jika ingin melihat data yang sudah tercatat, maka klik fitur Data Pembelian yang berada di sebelah kiri, dan jika ingin melihat laporan maka klik fitur Laporan di sebelah kiri.', 'btn-primary', '2023-07-28 17:11:32', '2023-07-28 17:11:32');
+
 -- --------------------------------------------------------
 
 --
@@ -66,6 +73,27 @@ INSERT INTO `avatar` (`id`, `name`, `avatar`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `font_family`
+--
+
+CREATE TABLE `font_family` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `font_family` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `font_family`
+--
+
+INSERT INTO `font_family` (`id`, `font_family`, `created_at`, `updated_at`) VALUES
+(1, '\"Roboto\"', '2023-07-28 19:52:15', '2023-07-28 19:52:15'),
+(2, '\"Helvetica Neue\"', '2023-07-28 19:52:15', '2023-07-28 19:52:15');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pembelian`
 --
 
@@ -89,7 +117,7 @@ CREATE TABLE `pembelian` (
 
 INSERT INTO `pembelian` (`id`, `nama_penjual`, `harga_beli`, `bobot`, `kualitas`, `tanggal_pembelian`, `total_bayar`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
 (1, 'Dadang', 6000.00, '10 kg', 'Besar', '2023-03-10', 60000.00, 'Administrator', '2023-07-24 15:13:12', 'Administrator', '2023-07-24 15:13:12'),
-(2, 'Dadang', 9000.00, '10 kg', 'Besar', '2023-07-20', 90000.00, 'Administrator', '2023-07-24 19:53:49', NULL, '2023-07-24 19:53:49'),
+(2, 'Dadang', 9000.00, '10 kg', 'Besar', '2023-07-20', 90000.00, 'Administrator', '2023-07-24 19:53:49', 'Administrator', '2023-07-24 19:53:49'),
 (3, 'Dadang', 11000.00, '20 kg', 'Besar', '2023-07-22', 220000.00, 'Administrator', '2023-07-24 20:06:28', NULL, '2023-07-24 20:06:28'),
 (4, 'Dadang', 1000.00, '10 kg', 'Besar', '2023-01-27', 10000.00, 'Administrator', '2023-07-24 20:07:02', NULL, '2023-07-24 20:07:02');
 
@@ -102,14 +130,23 @@ INSERT INTO `pembelian` (`id`, `nama_penjual`, `harga_beli`, `bobot`, `kualitas`
 CREATE TABLE `tampilan` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `warna_skema` varchar(255) DEFAULT NULL,
+  `warna_soft` varchar(255) DEFAULT NULL,
   `warna_latar` varchar(255) DEFAULT NULL,
   `warna_sidebar` varchar(255) DEFAULT NULL,
   `warna_topbar` varchar(255) DEFAULT NULL,
   `jenis_font` varchar(255) DEFAULT NULL,
   `ukuran_font` varchar(255) DEFAULT NULL,
+  `warna_font` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tampilan`
+--
+
+INSERT INTO `tampilan` (`id`, `warna_skema`, `warna_soft`, `warna_latar`, `warna_sidebar`, `warna_topbar`, `jenis_font`, `ukuran_font`, `warna_font`, `created_at`, `updated_at`) VALUES
+(1, 'primary', 'soft-primary', 'bg-white', 'bg-primary', 'bg-soft-primary', '\"Roboto\"', 'fs-6', 'text-primary', '2023-07-28 17:25:39', '2023-07-29 00:25:39');
 
 -- --------------------------------------------------------
 
@@ -252,7 +289,9 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (10, 5, 'Pencatatan', 'Tabelku/index', 'file', 1),
 (11, 5, 'Data Pembelian', 'Tabelku/pembelian', 'file', 1),
 (12, 5, 'Laporan', 'Tabelku/laporan', 'file', 1),
-(13, 6, 'Avatar', 'App/avatar', 'user', 1);
+(13, 6, 'Avatar', 'App/avatar', 'user', 1),
+(14, 6, 'Kelola Tema', 'App/tampilan', 'aperture', 1),
+(15, 6, 'Kelola Web', 'App/app', 'chrome', 1);
 
 -- --------------------------------------------------------
 
@@ -266,6 +305,63 @@ CREATE TABLE `user_token` (
   `token` varchar(255) DEFAULT NULL,
   `date_created` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `warna`
+--
+
+CREATE TABLE `warna` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `warna` varchar(255) DEFAULT NULL,
+  `kode` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `warna`
+--
+
+INSERT INTO `warna` (`id`, `warna`, `kode`, `created_at`, `updated_at`) VALUES
+(1, 'primary', '#3475ba', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(2, 'success', '#05a34a', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(3, 'info', '#66d1d1', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(4, 'warning', '#fbbc06', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(5, 'danger', '#ff3366', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(6, 'secondary', '#7987a1', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(7, 'light', '#e9ecef', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(8, 'dark', '#060c17', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(9, 'blue', '#0d6efd', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(10, 'indigo', '#6610f2', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(11, 'purple', '#6f42c1', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(12, 'pink', '#d63384', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(13, 'red', '#dc3545', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(14, 'orange', '#fd7e14', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(15, 'yellow', '#ffc107', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(16, 'green', '#198754', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(17, 'teal', '#20c997', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(18, 'cyan', '#0dcaf0', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(19, 'soft-primary', '#61A6F0', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(20, 'soft-success', '#6ecb8e', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(21, 'soft-info', '#a0e4e4', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(22, 'soft-warning', '#fbd994', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(23, 'soft-danger', '#ff8bb4', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(24, 'soft-secondary', '#7987a1', '2023-07-28 18:26:52', '2023-07-28 18:26:52'),
+(25, 'soft-light', '#f3f6f8', '2023-07-28 18:29:25', '2023-07-28 18:29:25'),
+(26, 'soft-dark', '#3f4e66', '2023-07-28 18:29:25', '2023-07-28 18:29:25'),
+(27, 'soft-blue', '#7fa7f9', '2023-07-28 18:29:25', '2023-07-28 18:29:25'),
+(28, 'soft-indigo', '#a68df7', '2023-07-28 18:29:25', '2023-07-28 18:29:25'),
+(29, 'soft-purple', '#a687c6', '2023-07-28 18:29:25', '2023-07-28 18:29:25'),
+(30, 'soft-pink', '#e978ad', '2023-07-28 18:29:25', '2023-07-28 18:29:25'),
+(31, 'soft-red', '#e09ca4', '2023-07-28 18:29:25', '2023-07-28 18:29:25'),
+(32, 'soft-orange', '#fda16e', '2023-07-28 18:29:25', '2023-07-28 18:29:25'),
+(33, 'soft-yellow', '#ffe0a4', '2023-07-28 18:29:25', '2023-07-28 18:29:25'),
+(34, 'soft-green', '#9edb9f', '2023-07-28 18:29:25', '2023-07-28 18:29:25'),
+(35, 'soft-teal', '#80d4bd', '2023-07-28 18:29:25', '2023-07-28 18:29:25'),
+(36, 'soft-cyan', '#7ddef7', '2023-07-28 18:29:25', '2023-07-28 18:29:25'),
+(37, 'white', '#fff', '2023-07-28 18:45:52', '2023-07-28 18:45:52');
 
 --
 -- Indexes for dumped tables
@@ -281,6 +377,12 @@ ALTER TABLE `app`
 -- Indexes for table `avatar`
 --
 ALTER TABLE `avatar`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `font_family`
+--
+ALTER TABLE `font_family`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -339,6 +441,12 @@ ALTER TABLE `user_token`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `warna`
+--
+ALTER TABLE `warna`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -346,13 +454,19 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `app`
 --
 ALTER TABLE `app`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `avatar`
 --
 ALTER TABLE `avatar`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `font_family`
+--
+ALTER TABLE `font_family`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pembelian`
@@ -364,7 +478,7 @@ ALTER TABLE `pembelian`
 -- AUTO_INCREMENT for table `tampilan`
 --
 ALTER TABLE `tampilan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -394,13 +508,19 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `warna`
+--
+ALTER TABLE `warna`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- Constraints for dumped tables

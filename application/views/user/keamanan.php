@@ -62,7 +62,7 @@
                     </div>
                     <div class="form-group row">
         				<div class="col-sm">
-        					<button type="submit" class="btn btn-primary float-right">Save</button>
+        					<button type="submit" class="btn  <?= app_web('warna_button') ?> float-right">Save</button>
         				</div>
         			</div>
         		</form>
@@ -110,7 +110,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-sm">
-                            <button type="submit" class="btn btn-primary float-right">Save</button>
+                            <button type="submit" class="btn  <?= app_web('warna_button') ?> float-right">Save</button>
                         </div>
                     </div>
                 </form>

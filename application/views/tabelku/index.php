@@ -1,4 +1,4 @@
-<div class="page-content">
+<div class="page-content <?= app_tampilan('warna_latar') ?>">
 
     <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
         <div>
@@ -65,7 +65,7 @@
                                 </div>
                             </div>
                             <div class="d-grid gap-2 col-2 mx-auto">
-                                <button type="submit" class="btn btn-block btn-primary">Simpan</button>
+                                <button type="submit" class="btn btn-block  <?= app_web('warna_button') ?>">Simpan</button>
                             </div>
                         </div>
                     </form>

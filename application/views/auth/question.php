@@ -8,11 +8,11 @@
             <h1 class="auth-title">Forgot Password</h1>
             <p class="auth-subtitle mb-5">Input your email and we will send you reset password link.</p>
             <?= $this->session->flashdata('message'); ?>
-            <form class="user" method="post" action="<?= base_url('auth/question/'.$pertanyaan_keamanan['pid']) ?>">
+            <form class="user" method="post" action="<?= base_url('auth/question/' . $pertanyaan_keamanan['pid']) ?>">
                 <div class="form-group position-relative has-icon-left mb-4">
                     <label><?= $pertanyaan_keamanan['p1'] ?></label>
                     <input type="text" class="form-control form-control-xl" id="jawaban_1" placeholder="" name="jawaban_1" value="<?= set_value('jawaban_1') ?>">
-                        <?= form_error('jawaban_1','<small class="text-danger pl-3">','</small>') ?>
+                    <?= form_error('jawaban_1', '<small class="text-danger pl-3">', '</small>') ?>
 
                     <div class="form-control-icon">
                         <i class="bi bi-envelope"></i>
@@ -21,13 +21,13 @@
                 <div class="form-group position-relative has-icon-left mb-4">
                     <label><?= $pertanyaan_keamanan['p2'] ?></label>
                     <input type="text" class="form-control form-control-xl" id="jawaban_2" placeholder="" name="jawaban_2" value="<?= set_value('jawaban_2') ?>">
-                        <?= form_error('jawaban_2','<small class="text-danger pl-3">','</small>') ?>
+                    <?= form_error('jawaban_2', '<small class="text-danger pl-3">', '</small>') ?>
 
                     <div class="form-control-icon">
                         <i class="bi bi-envelope"></i>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block btn-lg shadow-lg mt-5">
+                <button type="submit" class="btn <?= app_web('warna_button') ?> btn-block btn-lg shadow-lg mt-5">
                     Next
                 </button>
             </form>

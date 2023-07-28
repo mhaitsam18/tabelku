@@ -1,4 +1,4 @@
-<div class="page-content">
+<div class="page-content <?= app_tampilan('warna_latar') ?>">
     <style>
         h1 {
             text-align: center;
@@ -12,7 +12,7 @@
                         <input type="hidden" name="aksi" value="cetak">
                         <input type="hidden" class="form-control" id="dari" name="dari" value="<?= $val_dari ?>">
                         <input type="hidden" class="form-control" id="sampai" name="sampai" value="<?= $val_sampai ?>">
-                        <button type="submit" class="btn btn-primary float-end">Cetak</button>
+                        <button type="submit" class="btn  <?= app_web('warna_button') ?> float-end">Cetak</button>
                     </form>
                     <h1>Laporan Pembelian</h1>
                     <h1>UD Bawang Merah Indofood</h1>

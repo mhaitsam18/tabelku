@@ -58,7 +58,7 @@ License: For each use you must have a valid license purchased only from above li
 <body>
 	<div class="main-wrapper">
 		<div class="page-wrapper full-page">
-			<div class="page-content d-flex align-items-center justify-content-center bg-primary" <?= ($this->uri->segment(2) != 'registration') ? 'id="auth-happy"' : '' ?>>
+			<div class="page-content d-flex align-items-center justify-content-center bg-<?= app_web('warna_skema') ?>" <?= ($this->uri->segment(2) != 'registration') ? 'id="auth-happy"' : '' ?>>
 
 				<div class="row w-100 mx-0 auth-page">
 					<?php $this->load->view($page); ?>

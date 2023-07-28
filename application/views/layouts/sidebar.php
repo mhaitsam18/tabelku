@@ -4,10 +4,10 @@
 	}
 </style>
 <nav class="sidebar">
-	<div class="sidebar-header sidebar-h" style="background-color: #3475BA;">
+	<div class="sidebar-header sidebar-h <?= app_tampilan('warna_sidebar') ?>">
 		<a href="#" class="sidebar-brand">
 			<!-- <?= app_brand() ?> -->
-			<img src="<?= base_url('assets/img/app/tabelku.png') ?>" class="w-50" alt="">
+			<img src="<?= base_url('assets/img/' . app_web('logo')); ?>" class="w-50" alt="">
 			<!-- <img src="<?= base_url('/assets/img/logo/sidebar-logo.png') ?>" class="" alt="" style="margin-left: -40px;"> -->
 		</a>
 		<div class="sidebar-toggler not-active">
@@ -16,7 +16,7 @@
 			<span></span>
 		</div>
 	</div>
-	<div class="sidebar-body sidebar-h" id="background-sidebar">
+	<div class="sidebar-body sidebar-h <?= app_tampilan('warna_sidebar') ?>">
 		<ul class="nav">
 			<?php
 			$role_id = $this->session->userdata('role_id');
@@ -37,7 +37,7 @@
 					</li>
 					<style>
 						.a-hov :hover {
-							color: #6571FF;
+							color: var(--bs-<?= app_tampilan('warna_soft') ?>);
 						}
 					</style>
 			<?php

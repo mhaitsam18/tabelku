@@ -8,6 +8,18 @@ function app_brand()
 {
 	return "Tabel<span>ku</span>";	
 }
+function app_web($atribut)
+{
+	$ci = get_instance();
+	$app = $ci->db->get_where('app', ['id' => 1])->row_array();
+	return $app[$atribut];
+}
+function app_tampilan($atribut)
+{
+	$ci = get_instance();
+	$tampilan = $ci->db->get_where('tampilan', ['id' => 1])->row_array();
+	return $tampilan[$atribut];
+}
 function creator_name()
 {
 	return "Titik Rahmawati";	

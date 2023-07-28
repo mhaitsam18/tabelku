@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12 ps-md-0">
                 <div class="auth-form-wrapper px-4 py-5">
-                    <a href="#" class="noble-ui-logo d-block mb-2"><img src="<?= base_url('assets/img/app/tabelku.png') ?>" alt=""></a>
+                    <a href="#" class="noble-ui-logo d-block mb-2"><img src="<?= base_url('assets/img/' . app_web('logo')) ?>" alt=""></a>
                     <h5 class="text-light fw-normal mb-4">Buat Akun Gratis!!</h5>
                     <?= $this->session->flashdata('message'); ?>
                     <form method="post" action="<?= base_url('auth/registration') ?>" class="forms-sample">
@@ -89,7 +89,7 @@
                             </div>
                         </div>
                         <div>
-                            <button type="submit" class="btn btn-primary text-white me-2 mb-2 mb-md-0">Daftar</button>
+                            <button type="submit" class="btn <?= app_web('warna_button') ?> text-white me-2 mb-2 mb-md-0">Daftar</button>
                         </div>
                         <a href="<?= base_url('auth') ?>" class="d-block mt-3 text-light">Sudah Punya akun? Masuk!</a>
                     </form>

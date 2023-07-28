@@ -1,5 +1,5 @@
 <!-- End of Main Content -->
-<div class="page-content">
+<div class="page-content <?= app_tampilan('warna_latar') ?>">
 
     <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
         <div>
@@ -117,7 +117,7 @@
                                 </div>
                                 <div class="mb-3 row">
                                     <div class="col-sm">
-                                        <button type="submit" class="btn btn-primary float-right">Save</button>
+                                        <button type="submit" class="btn  <?= app_web('warna_button') ?> float-right">Save</button>
                                     </div>
                                 </div>
                                 <button type="button" class="btn btn-outline-danger btn-block" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">Delete Account</button>
@@ -151,7 +151,7 @@
                                         </div>
                                     <?php endforeach; ?>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-sm float-end m-3">Save</button>
+                                <button type="submit" class="btn  <?= app_web('warna_button') ?> btn-sm float-end m-3">Save</button>
                             </form>
                         </div>
                     </div>

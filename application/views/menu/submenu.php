@@ -1,4 +1,4 @@
-<div class="page-content">
+<div class="page-content <?= app_tampilan('warna_latar') ?>">
 
     <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
         <div>
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="table-responsive">
-                        <a href="" class="btn btn-primary mb-3 newSubMenuModalButton" data-bs-toggle="modal" data-bs-target="#newSubMenuModal">Add New Menu</a>
+                        <a href="" class="btn <?= app_web('warna_button') ?> mb-3 newSubMenuModalButton" data-bs-toggle="modal" data-bs-target="#newSubMenuModal">Add New Menu</a>
                         <table class="table table-hover" id="">
                             <thead>
                                 <tr>
@@ -106,7 +106,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <button type="submit" class="btn <?= app_web('warna_button') ?>">Tambah</button>
                 </div>
             </form>
         </div>

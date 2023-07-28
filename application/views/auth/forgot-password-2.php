@@ -10,15 +10,13 @@
             <?= $this->session->flashdata('message'); ?>
             <form class="user" method="post" action="<?= base_url('auth/forgotPassword2') ?>">
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="email" class="form-control form-control-xl"
-                        id="email" aria-describedby="emailHelp"
-                        placeholder="Enter Email Address..." name="email" value="<?= set_value('email') ?>">
-                        <?= form_error('email','<small class="text-danger pl-3">','</small>') ?>
-                        <div class="form-control-icon">
-                            <i class="bi bi-envelope"></i>
-                        </div>
+                    <input type="email" class="form-control form-control-xl" id="email" aria-describedby="emailHelp" placeholder="Enter Email Address..." name="email" value="<?= set_value('email') ?>">
+                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>') ?>
+                    <div class="form-control-icon">
+                        <i class="bi bi-envelope"></i>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block btn-lg shadow-lg mt-5">
+                <button type="submit" class="btn <?= app_web('warna_button') ?> btn-block btn-lg shadow-lg mt-5">
                     Next
                 </button>
             </form>

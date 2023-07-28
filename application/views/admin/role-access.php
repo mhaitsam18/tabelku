@@ -1,4 +1,4 @@
-<div class="page-content">
+<div class="page-content <?= app_tampilan('warna_latar') ?>">
 
 	<div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
 		<div>

@@ -1,4 +1,4 @@
-<div class="page-content">
+<div class="page-content <?= app_tampilan('warna_latar') ?>">
 
 	<div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
 		<div>
@@ -31,7 +31,7 @@
 									<?= form_error('new_password2', '<small class="text-danger pl-3">', '</small>') ?>
 								</div>
 								<div class="mb-3">
-									<button type="submit" class="btn btn-primary">
+									<button type="submit" class="btn  <?= app_web('warna_button') ?>">
 										Change Password
 									</button>
 								</div>

@@ -1,4 +1,4 @@
-<div class="page-content">
+<div class="page-content <?= app_tampilan('warna_latar') ?>">
 
     <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
         <div>
@@ -38,7 +38,7 @@
                                     <?= form_error('sampai', '<div class="invalid-feedback">', '</div>') ?>
                                 </div>
                                 <div class="d-grid gap-2 mx-auto">
-                                    <button type="submit" class="btn btn-block btn-primary">Tampilkan</button>
+                                    <button type="submit" class="btn btn-block  <?= app_web('warna_button') ?>">Tampilkan</button>
                                 </div>
                             </div>
                         </div>

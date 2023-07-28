@@ -1,4 +1,4 @@
-<div class="page-content">
+<div class="page-content <?= app_tampilan('warna_latar') ?>">
 
 	<div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
 		<div>
@@ -23,7 +23,7 @@
 								<i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton7">
-								<a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">Tambah</span></a>
+								<a class="dropdown-item d-flex align-items-center" href="javascript:;" data-bs-toggle="modal" data-bs-target="#setRoleModal"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">Tambah</span></a>
 							</div>
 						</div>
 					</div>
@@ -80,7 +80,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-					<button type="submit" class="btn btn-primary">Tambah</button>
+					<button type="submit" class="btn <?= app_web('warna_button') ?>">Tambah</button>
 				</div>
 			</form>
 		</div>
